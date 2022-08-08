@@ -1,3 +1,4 @@
+drop database if exists student_management;
 create database student_management;
 
 use student_management;
@@ -26,3 +27,6 @@ values (1, 'ABCD', 35, 'VN');
 
 insert into teacher (teacher_id, teacher_name, teacher_age, teacher_country)
 values (2, 'EFGH', 34, 'VN');
+
+select * from teacher;
+drop table teacher;
