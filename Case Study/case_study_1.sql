@@ -219,4 +219,12 @@ values
 (7,2,1,2),
 (8,2,12,2);
 
+select 	ma_nhan_vien, ho_ten from nhan_vien where ho_ten like 'T%'
+or ho_ten like 'H%' 
+or ho_ten like 'K%' 
+and length(ho_ten) <= 15;
 
+select ma_khach_hang, ho_ten from khach_hang where (dia_chi
+ like '%Đà Năng'or dia_chi like '%Quảng Tri'
+and (round(datediff(curdate(),ngay_sinh)/365,0) <= 50
+and (round(datediff(curdate(),ngay_sinh)/365,0) >=18)));
