@@ -31,16 +31,29 @@ order by count(hop_dong.ma_khach_hang);
 -- Chi Phí Thuê + Số Lượng * Giá, với Số Lượng và Giá là từ bảng dich_vu_di_kem, hop_dong_chi_tiet) cho tất cả các khách hàng đã từng đặt phòng. 
 -- (những khách hàng nào chưa từng đặt phòng cũng phải hiển thị ra).
 
-select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, hop_dong.ma_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc, 
-(ifnull(dich_vu.chi_phi_thue, 0) + ifnull(dich_vu_di_kem.gia, 0) * ifnull(hop_dong_chi_tiet.so_luong, 0)) as tong_tien
-from khach_hang
-left join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
-left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
-left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
-left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
-left join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
-group by ma_hop_dong
-order by ma_khach_hang, ma_hop_dong desc;
+SELECT 
+    khach_hang.ma_khach_hang,
+    khach_hang.ho_ten,
+    loai_khach.ten_loai_khach,
+    hop_dong.ma_hop_dong,
+    dich_vu.ten_dich_vu,
+    hop_dong.ngay_lam_hop_dong,
+    hop_dong.ngay_ket_thuc,
+    (IFNULL(dich_vu.chi_phi_thue, 0) + IFNULL(dich_vu_di_kem.gia, 0) * IFNULL(hop_dong_chi_tiet.so_luong, 0)) AS tong_tien
+FROM
+    khach_hang
+        LEFT JOIN
+    loai_khach ON khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
+        LEFT JOIN
+    hop_dong ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+        LEFT JOIN
+    dich_vu ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+        LEFT JOIN
+    hop_dong_chi_tiet ON hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+        LEFT JOIN
+    dich_vu_di_kem ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+GROUP BY ma_hop_dong
+ORDER BY ma_khach_hang , ma_hop_dong DESC;
 
 
 -- 6.	Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu 
@@ -110,3 +123,43 @@ sum(ifnull(hop_dong_chi_tiet.so_luong, 0))
 from hop_dong
 left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
 group by ma_hop_dong;
+
+
+
+-- 11.	Hiển thị thông tin các dịch vụ đi kèm đã được sử dụng bởi những khách hàng có ten_loai_khach là 
+-- “Diamond” và có dia_chi ở “Vinh” hoặc “Quảng Ngãi”.
+
+select dich_vu_di_kem.ma_dich_vu_di_kem ,
+dich_vu_di_kem.ten_dich_vu_di_kem
+from dich_vu_di_kem
+join hop_dong_chi_tiet on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+join hop_dong on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+join khach_hang on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
+where (loai_khach.ten_loai_khach = 'Diamond')
+and (khach_hang.dia_chi like '%Vinh'
+or khach_hang.dia_chi like '%Quảng Ngãi');
+
+-- 12.	Hiển thị thông tin ma_hop_dong, ho_ten (nhân viên), ho_ten (khách hàng), so_dien_thoai (khách hàng), ten_dich_vu, so_luong_dich_vu_di_kem 
+-- (được tính dựa trên việc sum so_luong ở dich_vu_di_kem), tien_dat_coc 
+-- của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2020 
+-- nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021.
+
+select hop_dong.ma_hop_dong,
+nhan_vien.ho_ten,
+khach_hang.ho_ten,
+khach_hang.ho_ten,
+khach_hang.so_dien_thoai,
+dich_vu.ten_dich_vu,
+SUM(hop_dong_chi_tiet.so_luong) as so_luong_dich_vu_di_kem,
+hop_dong.tien_dat_coc
+from hop_dong
+left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+left join nhan_vien on hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+left join khach_hang on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+left join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+left join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+where (year(hop_dong.ngay_lam_hop_dong) = 2020 and month(hop_dong.ngay_lam_hop_dong) between 10 and 12 ) and
+not in(
+
+)
