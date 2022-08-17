@@ -1,0 +1,75 @@
+header{
+    width: 100%;
+    height: 100px;
+
+}
+#logo{
+    margin-right: 10%;
+}
+#menu1{
+    margin-right: 2%;
+}
+#menu2{
+    margin-right: 10%;
+}
+#filter_book{
+    margin-right: 2%;
+}
+#search{
+    width: 200px;
+}
+article .row .book_1    {
+    width: 12.5%;
+    padding: 2%;
+    float: left;
+}
+#book_1{
+    width: 150px;
+    height: 260px;
+}
+#book_2{
+    width: 150px;
+    height: 260px;
+}#book_3{
+     width: 150px;
+     height: 260px;
+}#book_4{
+      width: 150px;
+      height: 260px;
+}#book_5{
+       width: 150px;
+       height: 260px;
+}
+#book_6{
+    width: 150px;
+    height: 260px;
+}#book_7{
+     width: 150px;
+     height: 260px;
+}#book_8{
+      width: 150px;
+      height: 260px;
+}#book_9{
+       width: 150px;
+       height: 260px;
+}#book_10{
+        width: 150px;
+        height: 260px;
+}
+#book_11{
+    width: 150px;
+    height: 260px;
+}
+#book_12{
+    width: 150px;
+    height: 260px;
+}
+
+#article_1{
+    width: 100%;
+    height: 360px;
+
+}#article_2{
+    width: 100%;
+    height: 360px;
+}

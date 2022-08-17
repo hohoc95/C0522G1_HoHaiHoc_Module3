@@ -1,6 +1,6 @@
-drop database if exists casetudy_week_1;
-create database casetudy_week_1;
-use casetudy_week_1;
+drop database if exists casestudy_week_1;
+create database casestudy_week_1;
+use casestudy_week_1;
 
 create table vi_tri(
 	ma_vi_tri int primary key,
@@ -35,6 +35,9 @@ create table nhan_vien(
     foreign key (ma_bo_phan) references bo_phan(ma_bo_phan)
 );
 
+ALTER TABLE nhan_vien
+  ADD tinh_trang_lam_viec bit;
+
 create table loai_khach(
 	ma_loai_khach int primary key,
     ten_loai_khach varchar(45)
@@ -50,6 +53,7 @@ create table khach_hang(
     email varchar (45),
     dia_chi varchar (45),
 	ma_loai_khach int ,
+    is_delete bit default 0,
     foreign key (ma_loai_khach) references loai_khach(ma_loai_khach)
 );
 
@@ -95,6 +99,7 @@ create table hop_dong(
     ngay_ket_thuc datetime not null,
     tien_dat_coc double not null,
     ma_nhan_vien int,
+    is_delete bit default 0,
     foreign key (ma_nhan_vien) references nhan_vien(ma_nhan_vien),
     ma_khach_hang int,
     foreign key (ma_khach_hang) references khach_hang(ma_khach_hang),
@@ -151,18 +156,18 @@ values
 (4, 'Silver'),
 (5, 'Member');
 
-insert into khach_hang(ma_khach_hang,ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach)
+insert into khach_hang(ma_khach_hang,ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach, is_delete)
 values 
-(1,'Nguyễn Thị Hào','1970-11-07',0,'643431213','0945423362','thihao07@gmail.com','23 Nguyễn Hoàng, Đà Nẵng',5),
-(2,'Phạm Xuân Diệu','1992-08-08',1,'865342123','0954333333','xuandieu92@gmail.com','K77/22 Thái Phiên, Quảng Trị',3),
-(3,'Trương Đình Nghệ','1990-02-27',1,'488645199','0373213122','nghenhan2702@gmail.com','K323/12 Ông Ích Khiêm, Vinh',1),
-(4,'Dương Văn Quan','1981-07-08',1,'543432111','0490039241','duongquan@gmail.com','K453/12 Lê Lợi, Đà Nẵng',1),
-(5,'Hoàng Trần Nhi Nhi','1995-12-09',0,'795453345','0312345678','nhinhi123@gmail.com','224 Lý Thái Tổ, Gia Lai',4),
-(6,'Tôn Nữ Mộc Châu','2005-12-06',0,'732434215','0988888844','tonnuchau@gmail.com','37 Yên Thế, Đà Nẵng',4),
-(7,'Nguyễn Mỹ Kim','1984-04-08',0,'856453123','0912345698','kimcuong84@gmail.com','K123/45 Lê Lợi, Hồ Chí Minh',1),
-(8,'Nguyễn Thị Hào','1999-04-08',0,'965656433','0763212345','haohao99@gmail.com','55 Nguyễn Văn Linh, Kon Tum',3),
-(9,'Trần Đại Danh','1994-07-01',1,'432341235','0643343433','danhhai99@gmail.com','24 Lý Thường Kiệt, Quảng Ngãi',1),
-(10,'Nguyễn Tâm Đắc','1989-07-01',1,'344343432','0987654321','dactam@gmail.com','22 Ngô Quyền, Đà Nẵng',2);
+(1,'Nguyễn Thị Hào','1970-11-07',0,'643431213','0945423362','thihao07@gmail.com','23 Nguyễn Hoàng, Đà Nẵng',5,0),
+(2,'Phạm Xuân Diệu','1992-08-08',1,'865342123','0954333333','xuandieu92@gmail.com','K77/22 Thái Phiên, Quảng Trị',3,0),
+(3,'Trương Đình Nghệ','1990-02-27',1,'488645199','0373213122','nghenhan2702@gmail.com','K323/12 Ông Ích Khiêm, Vinh',1,0),
+(4,'Dương Văn Quan','1981-07-08',1,'543432111','0490039241','duongquan@gmail.com','K453/12 Lê Lợi, Đà Nẵng',1,0),
+(5,'Hoàng Trần Nhi Nhi','1995-12-09',0,'795453345','0312345678','nhinhi123@gmail.com','224 Lý Thái Tổ, Gia Lai',4,0),
+(6,'Tôn Nữ Mộc Châu','2005-12-06',0,'732434215','0988888844','tonnuchau@gmail.com','37 Yên Thế, Đà Nẵng',4,0),
+(7,'Nguyễn Mỹ Kim','1984-04-08',0,'856453123','0912345698','kimcuong84@gmail.com','K123/45 Lê Lợi, Hồ Chí Minh',1,0),
+(8,'Nguyễn Thị Hào','1999-04-08',0,'965656433','0763212345','haohao99@gmail.com','55 Nguyễn Văn Linh, Kon Tum',3,0),
+(9,'Trần Đại Danh','1994-07-01',1,'432341235','0643343433','danhhai99@gmail.com','24 Lý Thường Kiệt, Quảng Ngãi',1,0),
+(10,'Nguyễn Tâm Đắc','1989-07-01',1,'344343432','0987654321','dactam@gmail.com','22 Ngô Quyền, Đà Nẵng',2,0);
 
 insert into loai_dich_vu(ma_loai_dich_vu, ten_loai_dich_vu)
 values
@@ -231,3 +236,4 @@ select ma_khach_hang, ho_ten from khach_hang where (dia_chi
  like '%Đà Năng'or dia_chi like '%Quảng Tri'
 and (round(datediff(curdate(),ngay_sinh)/365,0) <= 50
 and (round(datediff(curdate(),ngay_sinh)/365,0) >=18)));
+

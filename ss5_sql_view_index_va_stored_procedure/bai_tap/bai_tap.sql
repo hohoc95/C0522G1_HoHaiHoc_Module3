@@ -26,7 +26,9 @@ values
 
 -- Bước 3:
 
-select * from product where product_name = 'Bánh 2';
+select * 
+from product 
+where product_name = 'Bánh 2';
 
 -- Tạo Unique Index trên bảng Products (sử dụng cột productCode để tạo chỉ mục)
 
@@ -39,7 +41,9 @@ drop index test_unique_index on product;
 
 -- Sử dụng câu lệnh EXPLAIN để biết được câu lệnh SQL của bạn thực thi như nào
 
-explain  select * from product where product_name = 'Bánh 2';
+explain  select * 
+from product 
+where product_name = 'Bánh 2';
 
 -- Bước 4:
 
@@ -51,7 +55,8 @@ select product_code, product_name, product_price, product_status
 
 from product;
 
-select * from product_view ;
+select * 
+from product_view ;
 
 -- Tiến hành sửa đổi view
 
@@ -66,7 +71,8 @@ create procedure find_all_product()
 
 begin
 
-  select * from product;
+  select * 
+  from product;
 
 end //
 find_all_productfind_all_productfind_all_product
@@ -88,11 +94,10 @@ delimiter ;
 
 call insert_new_product(10,'Bánh 10',10,160,'kjhkhjk',1);
 
-select * from product;
+select * 
+from product;
 
 -- Tạo store procedure sửa thông tin sản phẩm theo id
-
-
 
  delimiter // 
 
@@ -112,12 +117,13 @@ delimiter ;
 
 call edit_product(10,10,'Bánh 10 B',10,160,'kjhkhjk',1);
 
-select * from product;
+select * 
+from product;
 
 
 -- Xóa theo id
 
- 
+
 delimiter //
 create procedure delete_product(in p_id int)
 begin
@@ -127,6 +133,7 @@ end //
 delimiter ;
 
 call delete_product(1);
-select * from product;
+select * 
+from product;
 
 
