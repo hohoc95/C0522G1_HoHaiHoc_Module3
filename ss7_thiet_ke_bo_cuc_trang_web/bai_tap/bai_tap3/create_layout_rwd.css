@@ -1,27 +1,18 @@
+
 .head{
 
-    height: 10%;
 }
 .left{
-    background: #f0f2f5;
-    height: 1200px;
+
 
 }
 .right{
-    background: #f0f2f5;
 
 }
-.contain{
-    background: #f0f2f5;
+.body{
+height: 540px;
 }
-#logo{
-    width: 3%;
-    height: 3%;
-    margin-right: 1%;
-}
-#search{
-    width: 200px;
-}
+
 
 .row{
     /*cho phép thẻ div (col) nổi lên trên*/
