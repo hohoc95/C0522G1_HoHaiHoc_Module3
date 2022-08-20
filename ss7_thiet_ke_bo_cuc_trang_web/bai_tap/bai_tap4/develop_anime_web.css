@@ -6,67 +6,35 @@
 }
 .contain{
 }
+
 ul {
+    list-style-type: none;
+    margin: 0;
     padding: 0;
+    overflow: hidden;
+    background-color: lightgreen;
 }
- ul li {
-    display: inline;
-    margin: 5px;
+
+li {
+    width: 24%;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: whitesmoke;
+    color: lightblue;
 }
 
 body{
     font-family: Arial;
-}
-
-#menu{
-    height: 30px;
-    padding:0;
-    margin:0;
-    border: 1px solid #CDCDCD;
-}
-
-#menu ul, #menu li{
-    padding:0;
-    margin:0;
-}
-
-#menu li{
-    position: relative;
-    float: left;
-    list-style: none;
-    margin: 0;
-    padding:0;
-}
-
-#menu li a{
-    width:100px;
-    height: 30px;
-    display: block;
-    text-decoration:none;
-    text-align: center;
-    line-height: 30px;
-    color: white;
-}
-
-#menu ul ul li a{
-    width: 200px;
-    text-align: left;
-    padding-left: 10px;
-}
-
-#menu li a:hover{
-    background-color: red;
-}
-
-#menu ul ul{
-    position: absolute;
-    top: 30px;
-    left: 15px;
-    visibility: hidden;
-}
-
-#menu ul li:hover ul{
-    visibility: visible;
 }
 
 .row{
