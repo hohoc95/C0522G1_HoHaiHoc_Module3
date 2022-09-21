@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo gallery đơn giản sử dụng Bootstrap</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="create_gallery.css">
+</head>
+<body>
+    <div class="content">
+        <h4>Responsive Image Gallery</h4>
+        <h6>Resize the browser window to see the effect.</h6>
+    </div>
+    <section class="gallery">
+        <div class="content">
+            <div class=" row gy-4 row-cols-2 row-cols-sm-2 row-cols-md-4" >
+                <div class="col responsive">
+                    <a target="_blank" href="img/img_fjords.jpg">
+                        <img src="img/img_fjords.jpg" class="gallery-item" alt="gallery">
+                    </a>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+                <div class="col responsive">
+                    <a target="_blank" href="img/img_forest.jpg">
+                        <img src="img/img_forest.jpg" class="gallery-item" alt="gallery">
+                    </a>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+                <div class="col responsive">
+                    <a target="_blank" href="img/img_lights.jpg">
+                        <img src="img/img_lights.jpg" class="gallery-item" alt="gallery">
+                    </a>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+                <div class="col responsive">
+                    <a target="_blank" href="img/img_mountains.jpg">
+                        <img src="img/img_mountains.jpg" class="gallery-item" alt="gallery">
+                    </a>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+            </div>
+        </div>
+        <span>This example use media queries to re-arrange the images on different screen sizes: for screens larger
+            than 700px wide, it will show four images side by side, for screens smaller than 700px,
+            it will show two images side by side. For screens smaller than 500px,
+            the images will stack vertically (100%).</span>
+    </section>
+</body>
+</html>

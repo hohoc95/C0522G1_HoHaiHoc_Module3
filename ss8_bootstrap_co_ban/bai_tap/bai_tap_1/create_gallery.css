@@ -1,0 +1,29 @@
+img{
+    max-width: 100%;
+}
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+div.content{
+    padding: 15px;
+}
+/*Khung viền*/
+div.responsive {
+    border: 1px solid #ccc;
+
+    /*Làm cong góc*/
+    border-radius: 0.5em;
+
+
+}
+
+/*Hover click*/
+div.responsive:hover {
+    border: 1px solid #777;
+}
+
+/*div.responsive img {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*}*/
