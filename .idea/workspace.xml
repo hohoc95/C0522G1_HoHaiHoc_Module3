@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba864b83-9ce4-4652-ba82-9d240867f939" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ss8_bootstrap_co_ban/bai_tap/bai_tap_2/build_a_landing_page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ss8_bootstrap_co_ban/bai_tap/bai_tap_2/build_a_landing_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ss8_bootstrap_co_ban/demo/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ss8_bootstrap_co_ban/demo/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ss8_bootstrap_co_ban/thuc_hanh/bai_doc/nav_bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +37,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
@@ -68,7 +62,7 @@
       <workItem from="1663742237153" duration="6868000" />
       <workItem from="1663753432229" duration="16000" />
       <workItem from="1663754749106" duration="789000" />
-      <workItem from="1663765011966" duration="1807000" />
+      <workItem from="1663765011966" duration="2994000" />
     </task>
     <servers />
   </component>
