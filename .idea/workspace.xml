@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba864b83-9ce4-4652-ba82-9d240867f939" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_2/world_weary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss7_thiet_ke_bo_cuc_trang_web/bai_tap/bai_tap3/create_layout_rwd.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss7_thiet_ke_bo_cuc_trang_web/bai_tap/bai_tap3/create_layout_rwd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss8_bootstrap/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss8_bootstrap/demo/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_1/create_gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_1/create_gallery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_2/build_a_landing_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_2/build_a_landing_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -40,7 +45,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
@@ -63,6 +68,10 @@
       <workItem from="1663753432229" duration="16000" />
       <workItem from="1663754749106" duration="789000" />
       <workItem from="1663765011966" duration="2994000" />
+      <workItem from="1663770779434" duration="1988000" />
+      <workItem from="1663803329747" duration="1854000" />
+      <workItem from="1663808633477" duration="18533000" />
+      <workItem from="1663916470245" duration="6169000" />
     </task>
     <servers />
   </component>
@@ -86,10 +95,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="516" y="84" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1663744219059" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1663766926138">
+    <state x="184" y="8" key="SettingsEditor" timestamp="1663809892693">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1663766926138" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1663809892693" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1663922796461">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1663922796461" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1663755109198">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
