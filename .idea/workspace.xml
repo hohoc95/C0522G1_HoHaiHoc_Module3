@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba864b83-9ce4-4652-ba82-9d240867f939" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_2/world_weary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ss7_thiet_ke_bo_cuc_trang_web/bai_tap/bai_tap3/create_layout_rwd.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss7_thiet_ke_bo_cuc_trang_web/bai_tap/bai_tap3/create_layout_rwd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ss8_bootstrap/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss8_bootstrap/demo/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_1/create_gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_1/create_gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_2/build_a_landing_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss8_bootstrap/exercise/bai_tap_2/build_a_landing_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +66,7 @@
       <workItem from="1663770779434" duration="1988000" />
       <workItem from="1663803329747" duration="1854000" />
       <workItem from="1663808633477" duration="18533000" />
-      <workItem from="1663916470245" duration="6169000" />
+      <workItem from="1663916470245" duration="6786000" />
     </task>
     <servers />
   </component>
