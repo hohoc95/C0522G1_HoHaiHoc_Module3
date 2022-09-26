@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba864b83-9ce4-4652-ba82-9d240867f939" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2cda774b-e54f-49a8-a24f-f6d0e8010a2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/servlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,43 +20,43 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectId" id="2DsHtRXbcvXMeIKSLt9MNtJtxO6" />
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="2FIMkRiZusD9MErpNhndRo2bz3w" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.65" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.65" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment />
+      <deployment>
+        <artifact name="Gradle : org.example : practice4-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
       <server-settings>
-        <option name="AJP_PORT" value="1099" />
-        <option name="BASE_DIRECTORY_NAME" value="e4907c64-f04b-4376-a391-bc0b12448b0a" />
-        <option name="HTTP_PORT" value="8080" />
+        <option name="BASE_DIRECTORY_NAME" value="64c3de1a-3198-4d7d-a990-6ae1ba3e48f0" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -63,7 +64,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="61936" />
+        <option name="DEBUG_PORT" value="58394" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -127,39 +128,22 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : org.example : practice4-1.0-SNAPSHOT.war" />
+        </option>
       </method>
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ba864b83-9ce4-4652-ba82-9d240867f939" name="Changes" comment="" />
-      <created>1661481090227</created>
+      <changelist id="2cda774b-e54f-49a8-a24f-f6d0e8010a2d" name="Changes" comment="" />
+      <created>1664175291561</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1661481090227</updated>
-      <workItem from="1661481093402" duration="444000" />
-      <workItem from="1663578159613" duration="77000" />
-      <workItem from="1663578277201" duration="3159000" />
-      <workItem from="1663645151113" duration="3015000" />
-      <workItem from="1663656218605" duration="4614000" />
-      <workItem from="1663723143760" duration="6248000" />
-      <workItem from="1663742237153" duration="6868000" />
-      <workItem from="1663753432229" duration="16000" />
-      <workItem from="1663754749106" duration="789000" />
-      <workItem from="1663765011966" duration="2994000" />
-      <workItem from="1663770779434" duration="1988000" />
-      <workItem from="1663803329747" duration="1854000" />
-      <workItem from="1663808633477" duration="18533000" />
-      <workItem from="1663916470245" duration="6786000" />
-      <workItem from="1663927656655" duration="740000" />
-      <workItem from="1663946489543" duration="2579000" />
-      <workItem from="1664158009353" duration="453000" />
-      <workItem from="1664161412370" duration="147000" />
-      <workItem from="1664161997114" duration="379000" />
+      <updated>1664175291561</updated>
+      <workItem from="1664175292873" duration="1257000" />
+      <workItem from="1664177184260" duration="33000" />
     </task>
     <servers />
   </component>
