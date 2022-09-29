@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c286f8e9-1786-4236-bf6c-7b3002f38e44" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/servlet/StudentServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/servlet/StudentServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/exercise2-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/exercise2-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/StudentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/StudentServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/student/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/student/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/build/libs/exercise2-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/build/libs/exercise2-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/src/main/java/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/src/main/java/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/src/main/java/servlet/StudentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/src/main/java/servlet/StudentServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise2/src/main/webapp/student/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise2/src/main/webapp/student/list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +161,8 @@
       <updated>1664432402078</updated>
       <workItem from="1664432403503" duration="1126000" />
       <workItem from="1664435369100" duration="4673000" />
+      <workItem from="1664440357138" duration="3000" />
+      <workItem from="1664457496916" duration="468000" />
     </task>
     <servers />
   </component>

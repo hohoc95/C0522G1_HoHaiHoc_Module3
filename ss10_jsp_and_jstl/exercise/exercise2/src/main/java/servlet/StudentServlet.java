@@ -13,10 +13,10 @@ import java.util.List;
 public class StudentServlet extends HttpServlet {
     private static List<Student> studentList = new ArrayList<>();
     static {
-        studentList.add(new Student(1,"Do","","29-09-2022",8,"1","C0522G1","1@gmail.com"));
-        studentList.add(new Student(2,"You","Nữ","29-09-2022",10,"2","C0522G1","2@gmail.com"));
-        studentList.add(new Student(3,"Love","","29-09-2022",7,"3","C0522G1","3@gmail.com"));
-        studentList.add(new Student(4,"Me","Nam","29-09-2022",9,"4","C0522G1","4@gmail.com"));
+        studentList.add(new Student("1","29-09-2022","Quảng Nam","https://www.google.com.vn/url?sa=i&url=https%3A%2F%2Fgamek.vn%2Fspy-x-family-la-bo-anime-noi-tieng-va-duoc-xem-nhieu-nhat-o-nhat-ban-hien-nay-20220527172233476.chn&psig=AOvVaw0Z5c4xLlK6AwMcy5tnOpXc&ust=1664527852638000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCJi42M3PufoCFQAAAAAdAAAAABAD"));
+        studentList.add(new Student("2","29-09-2022","Quảng Nam","2@gmail.com"));
+        studentList.add(new Student("3","29-09-2022","Quảng Nam","3@gmail.com"));
+        studentList.add(new Student("4","29-09-2022","Quảng Nam","4@gmail.com"));
 
     }
     @Override
