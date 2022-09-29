@@ -22,14 +22,12 @@
         <th>Hình ảnh</th>
 
     </tr>
-    <c:forEach var="student" items="${customerList}" varStatus="status">
+    <c:forEach var="customer" items="${customerList}" >
         <tr>
-            <td><c:out value="${customer.name}"/></td>
-            <td><c:out value="${student.date}"/></td>
-            <td><c:out value="${student.address}"/></td>
-            <td><img src="${student.picture()}" alt=""></td>
-            <td><button class="btn btn-primary btn-sm">Edit</button></td>
-            <td><button class="btn btn-danger btn-sm">Delete</button></td>
+            <td>${customer.name}</td>
+            <td>${customer.date}</td>
+            <td>${customer.address}</td>
+            <td><img src="${customer.picture}" alt=""></td>
         </tr>
     </c:forEach>
 </table>

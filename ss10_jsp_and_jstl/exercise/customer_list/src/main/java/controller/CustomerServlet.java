@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "CustomerServlet", value = "/CustomerServlet")
+@WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,7 +22,7 @@ public class CustomerServlet extends HttpServlet {
         customerList.add(new Customer("Đặng Thị Thủy Tiên", "20/03/2000", "Quảng Nam", "https://andy.codegym.vn/storage/images/avatars/38cba5c3296a2935a26f2dc896be48e2.jpeg"));
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("result.jsp");
-        request.setAttribute("customer", customerList);
+        request.setAttribute("customerList", customerList);
         requestDispatcher.forward(request,response);
 
     }
