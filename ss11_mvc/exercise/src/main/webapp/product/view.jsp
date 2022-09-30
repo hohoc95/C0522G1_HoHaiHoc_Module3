@@ -9,10 +9,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>View customer</title>
+    <title>View product</title>
 </head>
 <body>
-<h1>Customer details</h1>
+<h1>Product details</h1>
 <p>
     <a href="/product">Back to product list</a>
 </p>
