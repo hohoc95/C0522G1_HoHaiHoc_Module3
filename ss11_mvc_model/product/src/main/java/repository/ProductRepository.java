@@ -9,10 +9,9 @@ import java.util.Map;
 
 public class ProductRepository implements IProductRepository{
 
-    private static Map<Integer, Product> products;
+    private static Map<Integer, Product> products = new HashMap<>();
 
     static {
-        products = new HashMap<>();
         products.put(1, new Product(1,"Coca-Cola", 15000.0, "Nước ngọt có gas","CocaCola"));
         products.put(2, new Product(2,"Bánh gạo Ichi", 25000.0, "Bánh gạo Nhật vị Shouyu mật ong Ichi gói 180g","Ichi"));
         products.put(3, new Product(3,"Pepsi", 15000.0, "Nước ngọt có gas","Pepsi"));
@@ -48,12 +47,5 @@ public class ProductRepository implements IProductRepository{
     public void save(Product product) {
 
     }
-
-//    @Override
-//    public void save(Product product) {
-//        products.put(product.getId(), product);
-//    }
-
-
 
 }

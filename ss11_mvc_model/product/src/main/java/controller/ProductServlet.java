@@ -21,18 +21,18 @@ public class ProductServlet extends HttpServlet {
             action = "";
         }
         switch (action){
-//            case"create":
-//                showCreateForm(request,response);
-//                break;
-//            case"edit":
-//                showEditForm(request,response);
-//                break;
-//            case"delete":
-//                showDeleteForm(request,response);
-//                break;
-//            case"view":
-//                viewProduct(request,response);
-//                break;
+            case"create":
+                showCreateForm(request,response);
+                break;
+            case"edit":
+                showEditForm(request,response);
+                break;
+            case"delete":
+                showDeleteForm(request,response);
+                break;
+            case"view":
+                viewProduct(request,response);
+                break;
             default:
                 displayList(request,response);
         }
@@ -94,18 +94,26 @@ public class ProductServlet extends HttpServlet {
         }
     }
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/create.jsp");
+
         try {
-            requestDispatcher.forward(request,response);
+            request.getRequestDispatcher("product/create.jsp").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/create.jsp");
+//        try {
+//            requestDispatcher.forward(request,response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
     private void displayList(HttpServletRequest request, HttpServletResponse response) {
-//        List<Product> products = iProductService.findAll();
-//        request.setAttribute("products", products);
+        List<Product> products = iProductService.findAll();
+        request.setAttribute("products", products);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/list.jsp");
 
         try {

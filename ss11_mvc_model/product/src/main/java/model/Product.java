@@ -5,9 +5,9 @@ public class Product {
     private String name;
     private double price;
     private String description;
-//    description : mô tả sp
     private String manufacture;
-//    manufacture : hãng sản xuất
+//    Description : mô tả sp
+//    Manufacture : hãng sản xuất
 
 
     public Product() {
