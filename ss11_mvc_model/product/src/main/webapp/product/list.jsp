@@ -20,6 +20,7 @@
 </p>
 <table class="table table-striped" border="1">
     <tr>
+        <th>Id</th>
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
@@ -29,6 +30,8 @@
     </tr>
     <c:forEach items="${products}" var="product">
         <tr>
+<%--            <td>${product.count}</td>--%>
+            <td>${product.getId()}</td>
             <td>${product.getName()}</td>
             <td>${product.getPrice()}</td>
             <td>${product.getDescription()}</td>

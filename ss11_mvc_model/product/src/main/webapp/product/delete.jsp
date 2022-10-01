@@ -14,7 +14,7 @@
 <body>
 <h1>Delete product</h1>
 <p>
-    <a href="/product">Back to customer list</a>
+    <a href="/product">Back to product list</a>
 </p>
 <form method="post">
     <h3>Are you sure?</h3>
@@ -41,8 +41,8 @@
                 <td>${product.getManufacture()}</td>
             </tr>
             <tr>
-                <td><input type="submit" value="Delete customer"></td>
-                <td><a href="/customers">Back to customer list</a></td>
+                <td><input type="submit" value="Delete product"></td>
+                <td><a href="/product">Back to product list</a></td>
             </tr>
         </table>
     </fieldset>

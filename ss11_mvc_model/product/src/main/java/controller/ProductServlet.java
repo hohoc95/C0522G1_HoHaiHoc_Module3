@@ -10,7 +10,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ProServlet", value = {"","/ProductServlet"})
+@WebServlet(name = "ProductServlet", value = {"","/product"})
 
 public class ProductServlet extends HttpServlet {
     private IProductService iProductService = new ProductService();
@@ -43,7 +43,7 @@ public class ProductServlet extends HttpServlet {
         Product product = iProductService.findById(id);
         RequestDispatcher dispatcher;
         if(product == null){
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
+            dispatcher = request.getRequestDispatcher("error_404.jsp");
         } else {
             request.setAttribute("product", product);
             dispatcher = request.getRequestDispatcher("product/view.jsp");
@@ -62,7 +62,7 @@ public class ProductServlet extends HttpServlet {
         Product product = iProductService.findById(id);
         RequestDispatcher dispatcher;
         if(product == null){
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
+            dispatcher = request.getRequestDispatcher("error_404.jsp");
         } else {
             request.setAttribute("product", product);
             dispatcher = request.getRequestDispatcher("product/delete.jsp");
@@ -95,21 +95,14 @@ public class ProductServlet extends HttpServlet {
     }
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
 
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/create.jsp");
         try {
-            request.getRequestDispatcher("product/create.jsp").forward(request,response);
+            requestDispatcher.forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/create.jsp");
-//        try {
-//            requestDispatcher.forward(request,response);
-//        } catch (ServletException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
     private void displayList(HttpServletRequest request, HttpServletResponse response) {
         List<Product> products = iProductService.findAll();
@@ -151,7 +144,7 @@ public class ProductServlet extends HttpServlet {
         Product product = iProductService.findById(id);
         RequestDispatcher requestDispatcher;
         if(product == null){
-            requestDispatcher = request.getRequestDispatcher("error-404.jsp");
+            requestDispatcher = request.getRequestDispatcher("error_404.jsp");
         } else {
             iProductService.remove(id);
             try {
@@ -170,7 +163,7 @@ public class ProductServlet extends HttpServlet {
         Product product = iProductService.findById(id);
         RequestDispatcher requestDispatcher;
         if (product == null){
-            requestDispatcher = request.getRequestDispatcher("error-404.jsp");
+            requestDispatcher = request.getRequestDispatcher("error_404.jsp");
         } else {
             product.setName(name);
             product.setPrice(price);
@@ -191,11 +184,12 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void createProduct(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         Double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
         String manufacture = request.getParameter("manufacture");
-        int id = (int)(Math.random()*10000);
+//        int id = (int)(Math.random()*10000);
 
         Product product = new Product(id,name,price,description,manufacture);
         iProductService.save(product);
