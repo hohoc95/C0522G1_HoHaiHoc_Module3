@@ -14,7 +14,7 @@
 </head>
 <body>
 <h2>Discount Caculator</h2>
-<form action="/caculator_servlet" method="post">
+<form action="/caculator" method="post">
   <label>Product Description:</label>
   <input type="text" name="product_description"><br/>
   <label>List Price: </label>

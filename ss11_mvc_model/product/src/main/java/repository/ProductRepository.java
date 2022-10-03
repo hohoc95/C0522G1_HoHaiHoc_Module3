@@ -50,6 +50,9 @@ public class ProductRepository implements IProductRepository{
         return products.get(id);
     }
 
-
+    @Override
+    public Product findByName(String name) {
+        return null;
+    }
 
 }

@@ -4,8 +4,8 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "caculator_servlet", value = "/caculator_servlet")
-public class caculator_servlet extends HttpServlet {
+@WebServlet(name = "caculator_servlet", value = "/caculator")
+public class CaculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

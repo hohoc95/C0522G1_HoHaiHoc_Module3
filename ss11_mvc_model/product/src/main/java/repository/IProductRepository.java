@@ -13,10 +13,10 @@ public interface IProductRepository {
 
     void remove(int id);
 
-//    void save(Product product);
-
     Product findById(int id);
 
-
     void save(Product product);
+
+    Product findByName(String name);
+
 }
