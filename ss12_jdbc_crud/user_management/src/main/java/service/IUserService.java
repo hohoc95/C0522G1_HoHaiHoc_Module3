@@ -9,5 +9,7 @@ public interface IUserService {
     void save(User user);
     void delete (int id);
     User findById(int id);
-    void edit(int id, User user);
+    User selectUser(int id);
+
+    void updateUser(User book);
 }

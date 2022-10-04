@@ -6,7 +6,7 @@ public class User {
     private String email;
     private String country;
 
-    public User() {
+    public User(int id, String name, String email, String country) {
     }
 
     public User(int id, String name) {
@@ -14,6 +14,10 @@ public class User {
         this.name = name;
         this.email = email;
         this.country = country;
+    }
+
+    public User() {
+
     }
 
     public int getId() {

@@ -30,7 +30,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void edit(int id, User user) {
-        userRepository.edit(id, user);
+    public User selectUser(int id) {
+        return null;
     }
 }
