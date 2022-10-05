@@ -18,9 +18,9 @@
 <body>
 <button><a href="/user">Back to home</a></button>
 <form action="/user?action=create" method="post">
-    <label ><input type="text" name="name">Name</label><br>
-    <label ><input type="text" name="email">Email</label><br>
-    <label ><input type="text" name="country">Country</label><br>
+    <label ><input type="text" name="name" required>Name</label><br>
+    <label ><input type="text" name="email" required>Email</label><br>
+    <label ><input type="text" name="country" required>Country</label><br>
     <input type="submit" value="Submit">
 
 </form>
