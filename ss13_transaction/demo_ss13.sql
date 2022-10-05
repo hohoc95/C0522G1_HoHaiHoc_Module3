@@ -1,6 +1,6 @@
-drop database if exists demo_ss13;
-create database demo_ss13;
-use demo_ss13;
+drop database if exists demo;
+create database demo;
+use demo;
 
 create table users(
 	id int primary key auto_increment,
