@@ -226,28 +226,3 @@ values
 (1,1,3),
 (2,1,2),
 (2,12,2);
-
--- select c.*, (f.facility_cost+sum(ifnull(cd.quanity, 0) * ifnull(af.attach_facility_cost, 0))) as total_money
--- from contract c 
--- left join facility f on c.facility_id = f.facility_id 
--- left join contract_detail cd on cd.contract_id = c.contract_id
--- left join attach_facility af on af.attach_facility_id = cd.attach_facility_id
--- where c.is_delete = 0
--- group by c.contract_id;contract_detailcontract_detail
-
--- select af.attach_facility_name, cd.quanity
--- from contract_detail cd
--- join attach_facility af on af.attach_facility_id = cd.attach_facility_id
--- where cd.contract_id = 2;
-
--- delimiter $$
--- create procedure search_customer(in name_search varchar(45), in id_card_search varchar(45), in customer_type_search int)
--- begin
--- 	if (customer_type_search in (select customer_type_id from customer_type)) then
--- 		select * from customer where is_delete = 0 and customer_name like name_search and customer_id_card like id_card_search and customer_type_id = customer_type_search;
--- 		else select * from customer where is_delete = 0 and customer_name like name_search and customer_id_card like id_card_search;
--- 	end if;
--- end$$
--- delimiter ;
-
--- select * from facility f join facility_type t on f.facility_type_id = t.facility_type_id where f.is_delete = 0 and f.facility_name like "%f%" and t.facility_type_name like "%villa%";
