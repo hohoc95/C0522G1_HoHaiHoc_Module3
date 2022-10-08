@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
-    private static final String FIND_ALL = "select * from customer ;";
+    private static final String FIND_ALL = "select * from customer where is_delete = 0;";
     private static final String INSERT = "insert into customer(customer_name, customer_birthday, customer_gender, " +
             "customer_id_card, customer_phone, customer_email, customer_address, customer_type_id) " +
             "values(?,?,?,?,?,?,?,?);";
@@ -63,7 +63,6 @@ public class CustomerRepository implements ICustomerRepository {
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT);
-
             preparedStatement.setString(1, customer.getCustomerName());
             preparedStatement.setString(2, customer.getCustomerDateOfBirth());
             preparedStatement.setInt(3, customer.getCustomerGender());

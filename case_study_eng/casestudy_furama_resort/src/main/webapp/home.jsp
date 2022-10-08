@@ -17,7 +17,8 @@
     <title>Home</title>
     <style>
         .header {
-            background-image: url("https://wallpaperaccess.com/full/556423.gif");
+            /*background-image: url("https://wallpaperaccess.com/full/556423.gif");*/
+            background-image: url("https://wallpaperaccess.com/full/38119.jpg");
         }
         a {
             text-decoration: none;
@@ -27,14 +28,16 @@
         }
         .footer {
             bottom: 0;
-            background-image: url("https://wallpaperaccess.com/full/644233.jpg");
+            /*background-image: url("https://wallpaperaccess.com/full/644233.jpg");*/
+            background-image: url("https://wallpaperaccess.com/full/38119.jpg");
         }
         .left {
             overflow: hidden;
             height: 520px;
         }
         .body {
-            background-image: url("https://wallpaperaccess.com/full/1206292.jpg");
+            /*background-image: url("https://wallpaperaccess.com/full/1206292.jpg");*/
+            background-image: url("https://wallpaperaccess.com/full/358800.jpg");
         }
     </style>
 </head>

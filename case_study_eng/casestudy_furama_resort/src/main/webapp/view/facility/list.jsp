@@ -7,110 +7,220 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
-    <title>User List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <title>Facility list</title>
+    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>
+    <style>
+        body {
+            background-image: url("https://i.pinimg.com/originals/86/41/6d/86416d71cbd1e608a5304bb92fc235ea.png");
+        }
+        table {
+            border: solid 3px;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<p>${msg}</p>
-<h1>List Facility</h1>
-<a href="/facility?action=showCreateForm">Create new facility</a>
+<div class="p-3">
+    <h2 class="text-center fw-bold">FACILITY LIST</h2>
 
-<form action="/facility">
-    <table class="table table-striped" border="1">
-        <tr>
-            <th>Facility Id</th>
-            <th>Facility Name</th>
+    <p class="text-center mt-3"><a href="/"><i class="fa-solid fa-house-chimney h5 mx-1"></i> Back to HOME</a></p>
+
+    <c:if test="${mess!=null}">
+        <c:if test="${check}">
+            <div class="justify-content-center d-flex">
+                <div class="alert alert-success alert-dismissible fade show w-50 text-center">
+                    <strong>${mess}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            </div>
+        </c:if>
+
+        <c:if test="${!check}">
+            <div class="justify-content-center d-flex">
+                <div class="alert alert-danger alert-dismissible fade show w-50 text-center">
+                    <strong>${mess}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            </div>
+        </c:if>
+    </c:if>
+
+    <nav class="navbar navbar-expand-lg py-0 my-0">
+        <div class="container-fluid">
+            <a href="/facility?action=create">
+                <button class="btn btn-success btn-outline-secondary btn-sm">
+                    <span class="fa-solid fa-house-medical text-light h5 my-auto me-1"></span>
+                    <span class="text-light"> Add new Facility</span>
+                </button>
+            </a>
+
+            <form class="d-flex my-2" role="search" action="/facility">
+                <input class="form-control me-2" type="text" placeholder="Input find Service name"
+                       aria-label="Search" name="nameSearch" style="width: 210%">
+                <select class="form-control me-2" name="facilityTypeSearch">
+                    <option value="">Facility type</option>
+                    <c:forEach var="facilityType" items="${facilityTypeList}">
+                        <option value="${facilityType.facilityTypeName}">${facilityType.facilityTypeName}</option>
+                    </c:forEach>
+                </select>
+                <button class="btn btn-outline-success" type="submit" name="action" value="search">
+                    <i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </nav>
+
+    <table id="facilityTable" class="table table-light table-striped table-bordered">
+        <thead>
+        <tr class="table-dark text-light">
+            <th class="text-center"><i class="fa-solid fa-dog"></i></th>
+            <th>Name</th>
             <th>Area</th>
-            <th>Facility Cost</th>
-            <th>Max People</th>
-            <th>Standard Room</th>
-            <th>DOC</th>
-            <th>Pool Area</th>
-            <th>Number Of Floors</th>
+            <th>Cost</th>
+            <th class="text-center">Max people</th>
+            <th>Standard</th>
+            <th>Description</th>
+            <th>Pool area</th>
+            <th class="text-center">Number of Floors</th>
             <th>Facility Free</th>
-            <th>Rent TypeId</th>
-            <th>Facility TypeId</th>
-            <th colspan="2">Action</th>
+            <th>Rent type</th>
+            <th>Facility type</th>
+            <th class="text-center">Edit</th>
+            <th class="text-center">Delete</th>
         </tr>
-        <c:forEach var="facility" items="${facilityList}" varStatus="count">
+        </thead>
+
+        <tbody>
+        <c:forEach varStatus="status" var="facility" items="${facilityList}">
             <tr>
-                <td>${count.count}</td>
-<%--                <td>--%>
-<%--                    <c:out value="${per.getFacilityName()}"/>--%>
-<%--                </td>--%>
-                <td>${facility.getFacilityName}</td>
+                <td class="text-center">${status.count}</td>
+                <td>${facility.facilityName}</td>
+                <td>${facility.area}</td>
+                <td>₫${String.format("%.0f", facility.cost)}</td>
+                <td class="text-center">${facility.maxPeople}</td>
 
-                <td>
-                    ${facility.getArea()}/>
-                </td>
-                <td>
-                    ${facility.getFacilityCost()}/>
-                </td>
-                <td>
-                   ${facility.getMaxPeople()}/>
-                </td>
-                <td>
-                    ${facility.getRentTypeId()}/>
-                </td>
-                <td>
-                    <${facility.getFacilityTypeId()}/>
-                </td>
-                <td>
-                    <${facility.getStandardRoom()}/>
-                </td>
-                <td>
-                    ${facility.getDescriptionOtherConvenience()}/>
-                </td>
-                <td>
-                    ${facility.getPoolArea()}/>
-                </td>
-                <td>
-                   ${facility.getNumberOfFloors()}/>
-                </td>
-                <td>
-                   ${facility.getFacilityFree()}"/>
-                </td>
+                <c:if test="${facility.standardRoom!=null}">
+                    <td>${facility.standardRoom}</td>
+                </c:if>
+                <c:if test="${facility.standardRoom==null}">
+                    <td>-</td>
+                </c:if>
 
-                    <%--            <td><button><a href="">Edit</a></button></td>--%>
-                <td><button><a href="/facility?action=editForm&id=${per.getFacilityId()}">Edit</a></button></td>
-                    <%--        <td><button><a href="/user?action=delete&id=${per.id}">Delete</a></button></td>--%>
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Delete
-                    </button>
+                <c:if test="${facility.descriptionOtherConvenience!=null}">
+                    <td>${facility.descriptionOtherConvenience}</td>
+                </c:if>
+                <c:if test="${facility.descriptionOtherConvenience==null}">
+                    <td>-</td>
+                </c:if>
 
-                    <!-- Modal -->
-                    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog ">
-                            <div class="modal-content bg-dark">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Bạn có muốn xóa <strong class="text-danger">${per.getFacilityName}</strong>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <a href="facility?action=delete&id=${per.id}" class="btn btn-danger">Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <c:if test="${facility.poolArea!=0}">
+                    <td>${facility.poolArea}</td>
+                </c:if>
+                <c:if test="${facility.poolArea==0}">
+                    <td>-</td>
+                </c:if>
+
+                <c:if test="${facility.numberOfFloors!=0}">
+                    <td class="text-center">${facility.numberOfFloors}</td>
+                </c:if>
+                <c:if test="${facility.numberOfFloors==0}">
+                    <td class="text-center">-</td>
+                </c:if>
+
+                <c:if test="${facility.facilityFree!=null}">
+                    <td>${facility.facilityFree}</td>
+                </c:if>
+                <c:if test="${facility.facilityFree==null}">
+                    <td>-</td>
+                </c:if>
+
+                <c:forEach var="rentType" items="${rentTypeList}">
+                    <c:if test="${rentType.rentTypeId == facility.rentTypeId}">
+                        <td>${rentType.rentTypeName}</td>
+                    </c:if>
+                </c:forEach>
+                <c:forEach var="facilityType" items="${facilityTypeList}">
+                    <c:if test="${facilityType.facilityTypeId == facility.facilityTypeId}">
+                        <td>${facilityType.facilityTypeName}</td>
+                    </c:if>
+                </c:forEach>
+                <td class="text-center">
+                    <a href="/facility?action=edit&id=${facility.facilityId}">
+                        <button class="btn btn-primary btn-outline-secondary btn-sm">
+                            <span class="fa-solid fa-house-circle-exclamation text-light h6 m-auto px-2"></span>
+                        </button>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="/facility?action=delete&id=${facility.facilityId}" data-bs-toggle="modal"
+                       data-bs-target="#exampleModal"
+                       onclick="deleteFacility('${facility.getFacilityId()}','${facility.getFacilityName()}')">
+                        <button class="btn btn-danger btn-outline-secondary btn-sm">
+                            <span class="fa-solid fa-house-circle-xmark text-light h6 m-auto px-2"></span>
+                        </button>
+                    </a>
                 </td>
             </tr>
         </c:forEach>
-
+        </tbody>
     </table>
-</form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-</body>
-</html>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="/facility" method="get">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">You Want To Delete?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" hidden name="idDelete" id="idDelete">
+                        <input type="text" hidden name="action" value="delete">
+                        <strong>Facility: </strong>
+                        <span id="nameDelete" class="text-danger"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function deleteFacility(id, name) {
+        document.getElementById("idDelete").value = id;
+        document.getElementById("nameDelete").innerText = name;
+    }
+</script>
+
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#facilityTable').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 7
+        });
+    });
+</script>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous">
+</script>
+</html>
