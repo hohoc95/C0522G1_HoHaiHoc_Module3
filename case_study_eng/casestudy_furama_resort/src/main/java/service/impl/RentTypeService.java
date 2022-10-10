@@ -8,7 +8,7 @@ import service.IRentTypeService;
 import java.util.List;
 
 public class RentTypeService implements IRentTypeService {
-    IRentTypeRepository iRentTypeRepository = new RentTypeRepository();
+    private IRentTypeRepository iRentTypeRepository = new RentTypeRepository();
     @Override
     public List<RentType> findAll() {
         return iRentTypeRepository.findAll();

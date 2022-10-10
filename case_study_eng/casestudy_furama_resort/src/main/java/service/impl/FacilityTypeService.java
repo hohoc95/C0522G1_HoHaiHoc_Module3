@@ -8,7 +8,7 @@ import service.IFacilityTypeService;
 import java.util.List;
 
 public class FacilityTypeService implements IFacilityTypeService {
-    IFacilityTypeRepository iFacilityTypeRepository = new FacilityTypeRepository();
+    private IFacilityTypeRepository iFacilityTypeRepository = new FacilityTypeRepository();
     @Override
     public List<FacilityType> findAll() {
         return iFacilityTypeRepository.findAll();
