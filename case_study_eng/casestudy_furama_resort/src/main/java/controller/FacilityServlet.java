@@ -35,6 +35,9 @@ public class FacilityServlet extends HttpServlet {
             case "delete":
                 deleteFacility(request, response);
                 break;
+            case "search":
+                searchFacility(request, response);
+                break;
             default:
                 findAll(request, response);
         }
@@ -58,6 +61,26 @@ public class FacilityServlet extends HttpServlet {
         }
     }
 
+    private void searchFacility(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/facility/list.jsp");
+
+        String name = request.getParameter("nameSearch");
+        String facilityType = request.getParameter("facilityTypeSearch");
+
+        List<Facility> facilityList = iFacilityService.search(name, facilityType);
+        List<FacilityType> facilityTypeList = iFacilityTypeService.findAll();
+        List<RentType> rentTypeList = iRentTypeService.findAll();
+
+        request.setAttribute("facilityList", facilityList);
+        request.setAttribute("facilityTypeList", facilityTypeList);
+        request.setAttribute("rentTypeList", rentTypeList);
+
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void deleteFacility(HttpServletRequest request, HttpServletResponse response) {
         int idDelete = Integer.parseInt(request.getParameter("idDelete"));
@@ -72,6 +95,26 @@ public class FacilityServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        List<FacilityType> facilityTypeList = iFacilityTypeService.findAll();
+        List<RentType> rentTypeList = iRentTypeService.findAll();
+        Facility facility = iFacilityService.findById(id);
+        RequestDispatcher dispatcher;
+
+        if (facility == null) {
+            dispatcher = request.getRequestDispatcher("view/error_404.jsp");
+        } else {
+            request.setAttribute("facility", facility);
+            dispatcher = request.getRequestDispatcher("view/facility/edit.jsp");
+            request.setAttribute("facilityTypeList", facilityTypeList);
+            request.setAttribute("rentTypeList", rentTypeList);
+        }
+
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {

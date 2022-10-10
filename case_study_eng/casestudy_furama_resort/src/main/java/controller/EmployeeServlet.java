@@ -37,6 +37,9 @@ public class EmployeeServlet extends HttpServlet {
             case "delete":
                 deleteEmployee(request, response);
                 break;
+            case "search":
+                searchEmployee(request, response);
+                break;
             default:
                 findAll(request, response);
         }
@@ -46,6 +49,35 @@ public class EmployeeServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/list.jsp");
 
         List<Employee> employeeList = iEmployeeService.findAll();
+        List<Position> positionList = iPositionService.findAll();
+        List<EducationDegree> educationDegreeList = iEducationDegreeService.findAll();
+        List<Division> divisionList = iDivisionService.findAll();
+
+        for (Employee employee : employeeList) {
+            String[] arr = employee.getEmployeeBirthday().split("-");
+            employee.setEmployeeBirthday(arr[2] + "/" + arr[1] + "/" + arr[0]);
+        }
+
+        request.setAttribute("employeeList", employeeList);
+        request.setAttribute("positionList", positionList);
+        request.setAttribute("educationDegreeList", educationDegreeList);
+        request.setAttribute("divisionList", divisionList);
+
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void searchEmployee(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/list.jsp");
+
+        String name = request.getParameter("nameSearch");
+        String address = request.getParameter("addressSearch");
+        String phone = request.getParameter("phoneSearch");
+
+        List<Employee> employeeList = iEmployeeService.search(name, address, phone);
         List<Position> positionList = iPositionService.findAll();
         List<EducationDegree> educationDegreeList = iEducationDegreeService.findAll();
         List<Division> divisionList = iDivisionService.findAll();
@@ -80,7 +112,33 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        List<Position> positionList = iPositionService.findAll();
+        List<EducationDegree> educationDegreeList = iEducationDegreeService.findAll();
+        List<Division> divisionList = iDivisionService.findAll();
+        Employee employee = iEmployeeService.findById(id);
+        RequestDispatcher dispatcher;
 
+        if (employee == null) {
+            dispatcher = request.getRequestDispatcher("view/error_404.jsp");
+        } else {
+            request.setAttribute("employee", employee);
+            dispatcher = request.getRequestDispatcher("view/employee/edit.jsp");
+            request.setAttribute("positionList", positionList);
+            request.setAttribute("educationDegreeList", educationDegreeList);
+            request.setAttribute("divisionList", divisionList);
+
+            LocalDate minAge = LocalDate.now().minusYears(65);
+            LocalDate maxAge = LocalDate.now().minusYears(18);
+            request.setAttribute("minAge", minAge);
+            request.setAttribute("maxAge", maxAge);
+        }
+
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
@@ -182,5 +240,4 @@ public class EmployeeServlet extends HttpServlet {
         request.setAttribute("check", check);
 
         showCreateForm(request, response);
-    }
-}
+    }}

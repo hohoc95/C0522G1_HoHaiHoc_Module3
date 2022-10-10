@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hp
-  Date: 10/7/2022
-  Time: 7:03 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -77,57 +70,60 @@
         </div>
     </nav>
 
-    <table class="table table-striped table-bordered" id="customerTable">
+    <table id="customerTable" class="table table-light table-striped table-bordered">
         <thead>
-        <tr class="text-center bg-info">
-            <th>Number</th>
+        <tr class="table-dark text-light">
+            <th class="text-center"><i class="fa-solid fa-dog"></i></th>
             <th>Name</th>
-            <th>Date of Birth</th>
+            <th>Birthday</th>
             <th>Gender</th>
             <th>Id card</th>
-            <th>Phone number</th>
+            <th>Phone</th>
             <th>Email</th>
             <th>Address</th>
             <th>Customer type</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th class="text-center">Edit</th>
+            <th class="text-center">Delete</th>
         </tr>
         </thead>
+
         <tbody>
         <c:forEach varStatus="status" var="customer" items="${customerList}">
             <tr>
                 <td class="text-center">${status.count}</td>
-                <td>${customer.getCustomerName()}</td>
-                <td class="text-center">${customer.getCustomerDateOfBirth()}</td>
-                <c:if test="${customer.getCustomerGender() == 1}">
-                    <td class="text-center">Male</td>
+                <td>${customer.customerName}</td>
+                <td>${customer.customerBirthday}</td>
+                <c:if test="${customer.customerGender == 1}">
+                    <td>Male</td>
                 </c:if>
-                <c:if test="${customer.getCustomerGender() == 0}">
-                    <td class="text-center">Female</td>
+                <c:if test="${customer.customerGender == 0}">
+                    <td>Female</td>
                 </c:if>
-                <td class="text-center">${customer.getCustomerIdCard()}</td>
-                <td class="text-center">${customer.getCustomerPhoneNumber()}</td>
+                <td>${customer.customerIdCard}</td>
+                <td>${customer.customerPhone}</td>
                 <td>${customer.customerEmail}</td>
                 <td>${customer.customerAddress}</td>
                 <c:forEach var="customerType" items="${customerTypeList}">
-                    <c:if test="${customerType.getCustomerTypeId() == customer.getCustomerTypeId()}">
-                        <td class="text-center">${customerType.getCustomerTypeName()}</td>
+                    <c:if test="${customerType.customerTypeId == customer.customerTypeId}">
+                        <td>${customerType.customerTypeName}</td>
                     </c:if>
                 </c:forEach>
-                <td class="text-center"><a href="/customer?action=edit&id=${customer.getCustomerId()}">
-                    <span class="fa-solid fa-user-pen text-primary h4 m-auto"></span>
-                </a></td>
-
-
                 <td class="text-center">
-                    <button onclick="deleteCustomer('${customer.customerId}','${customer.customerName}')"
-                            type="button"
-                            class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
+                    <a href="/customer?action=edit&id=${customer.customerId}">
+                        <button class="btn btn-primary btn-outline-secondary btn-sm">
+                            <span class="fa-solid fa-user-pen text-light h6 m-auto px-2"></span>
+                        </button>
+                    </a>
                 </td>
-
+                <td class="text-center">
+                    <a href="/customer?action=delete&id=${customer.customerId}" data-bs-toggle="modal"
+                       data-bs-target="#exampleModal"
+                       onclick="deleteCustomer('${customer.getCustomerId()}','${customer.getCustomerName()}')">
+                        <button class="btn btn-danger btn-outline-secondary btn-sm">
+                            <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2"></span>
+                        </button>
+                    </a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

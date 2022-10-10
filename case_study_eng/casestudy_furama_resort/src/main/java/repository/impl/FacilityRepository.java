@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FacilityRepository implements IFacilityRepository {
-    private static final String SELECT = "select * from facility where is_delete = 0;";
-    private static final String CREATE = "insert into facility(facility_name, facility_area, facility_cost, " +
+    private static final String FIND_ALL = "select * from facility where is_delete = 0;";
+    private static final String INSERT = "insert into facility(facility_name, facility_area, facility_cost, " +
             "max_people, standard_room, description_other_convenience, pool_area, number_of_floors, facility_free, " +
             "rent_type_id, facility_type_id) values(?,?,?,?,?,?,?,?,?,?,?);";
     private static final String FIND_BY_ID = "select * from facility where facility_id = ? and is_delete = 0;";
@@ -32,7 +32,7 @@ public class FacilityRepository implements IFacilityRepository {
         Connection connection = BaseRepository.getConnectDB();
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT);
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -65,7 +65,7 @@ public class FacilityRepository implements IFacilityRepository {
         Connection connection = BaseRepository.getConnectDB();
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(CREATE);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT);
 
             preparedStatement.setString(1, facility.getFacilityName());
             preparedStatement.setInt(2, facility.getArea());
@@ -86,6 +86,39 @@ public class FacilityRepository implements IFacilityRepository {
         }
 
         return false;
+    }
+
+    @Override
+    public Facility findById(int idFind) {
+        Facility facility = null;
+        Connection connection = BaseRepository.getConnectDB();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_ID);
+            preparedStatement.setInt(1, idFind);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("facility_id");
+                String name = resultSet.getString("facility_name");
+                int area = resultSet.getInt("facility_area");
+                double cost = resultSet.getDouble("facility_cost");
+                int maxPeople = resultSet.getInt("max_people");
+                String standard = resultSet.getString("standard_room");
+                String description = resultSet.getString("description_other_convenience");
+                double poolArea = resultSet.getDouble("pool_area");
+                int numberOfFloors = resultSet.getInt("number_of_floors");
+                String facilityFree = resultSet.getString("facility_free");
+                int rentType = resultSet.getInt("rent_type_id");
+                int facilityType = resultSet.getInt("facility_type_id");
+
+                facility = new Facility(id, name, area, cost, maxPeople, standard, description, poolArea,
+                        numberOfFloors, facilityFree, rentType, facilityType);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return facility;
     }
 
     @Override
@@ -131,5 +164,41 @@ public class FacilityRepository implements IFacilityRepository {
         }
 
         return rowDelete;
+    }
+
+    @Override
+    public List<Facility> search(String nameSearch, String facilityTypeSearch) {
+        List<Facility> facilityList = new ArrayList<>();
+        Connection connection = BaseRepository.getConnectDB();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH);
+            preparedStatement.setString(1, "%" + nameSearch + "%");
+            preparedStatement.setString(2, "%" + facilityTypeSearch + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("facility_id");
+                String name = resultSet.getString("facility_name");
+                int area = resultSet.getInt("facility_area");
+                double cost = resultSet.getDouble("facility_cost");
+                int maxPeople = resultSet.getInt("max_people");
+                String standard = resultSet.getString("standard_room");
+                String description = resultSet.getString("description_other_convenience");
+                double poolArea = resultSet.getDouble("pool_area");
+                int numberOfFloors = resultSet.getInt("number_of_floors");
+                String facilityFree = resultSet.getString("facility_free");
+                int rentType = resultSet.getInt("rent_type_id");
+                int facilityType = resultSet.getInt("facility_type_id");
+
+                Facility facility = new Facility(id, name, area, cost, maxPeople, standard, description, poolArea,
+                        numberOfFloors, facilityFree, rentType, facilityType);
+                facilityList.add(facility);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return facilityList;
     }
 }

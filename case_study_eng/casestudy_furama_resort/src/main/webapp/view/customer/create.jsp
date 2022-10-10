@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hp
-  Date: 10/7/2022
-  Time: 7:03 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -71,8 +64,7 @@
             <div class="form-group">
                 <label for="name" class="h6">Name:</label>
                 <div class="input-group">
-                    <input type="text" id="name" class="form-control" placeholder="Input name" name="customerName" required
-<%--                           pattern="^[A-Z][a-z]+( [A-Z][a-z]*)+$"--%>
+                    <input type="text" id="name" class="form-control" placeholder="Input name" name="name"
                            title="Tên khách hàng không được chứa số và các kí tự đầu tiên của mỗi từ phải viết hoa.">
                     <span class="input-group-text"><i class="fa-solid fa-person-circle-question"></i></span>
                 </div>
@@ -80,7 +72,7 @@
 
             <div class="mt-3 form-group">
                 <label for="dateOfBirth" class="h6">Date of Birth:</label>
-                <input type="date" id="dateOfBirth" class="form-control" name="customerDateOfBirth" min="${minAge}"
+                <input type="date" id="dateOfBirth" class="form-control" name="dateOfBirth" min="${minAge}"
                        max="${maxAge}">
             </div>
 
@@ -88,11 +80,11 @@
                 <label class="h6">Gender:</label>
                 <div class="d-flex">
                     <label class="d-block me-4">
-                        <input type="radio" value="1" name="customerGender" checked> Male
+                        <input type="radio" value="1" name="gender" checked> Male
                         <i class="fa-solid fa-mars"></i>
                     </label>
                     <label class="d-block">
-                        <input type="radio" value="0" name="customerGender"> Female
+                        <input type="radio" value="0" name="gender"> Female
                         <i class="fa-solid fa-venus"></i>
                     </label>
                 </div>
@@ -101,8 +93,8 @@
             <div class="mt-3 form-group">
                 <label for="idCard" class="h6">Id card:</label>
                 <div class="input-group">
-                    <input type="text" id="idCard" class="form-control" placeholder="Input Id card" name="customerIdCard"
-                           required >
+                    <input type="text" id="idCard" class="form-control" placeholder="Input Id card" name="idCard"
+                           title="Số CMND phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX (X là số 0-9).">
                     <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
                 </div>
             </div>
@@ -110,8 +102,8 @@
             <div class="mt-3 form-group">
                 <label for="phone" class="h6">Phone number:</label>
                 <div class="input-group">
-                    <input type="text" id="phone" class="form-control" placeholder="Input Phone number" name="customerPhoneNumber"
-                           required>
+                    <input type="text" id="phone" class="form-control" placeholder="Input Phone number" name="phone"
+                           title="Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx.">
                     <span class="input-group-text"><i class="fa-solid fa-square-phone"></i></span>
                 </div>
             </div>
@@ -119,9 +111,9 @@
             <div class="mt-3 form-group">
                 <label for="email" class="h6">Email:</label>
                 <div class="input-group">
-                    <input type="text" id="email" class="form-control" placeholder="Input Email" name="customerEmail"
-                           required
-                           >
+                    <input type="text" id="email" class="form-control" placeholder="Input Email" name="email"
+
+                           title="Địa chỉ email phải đúng định dạng.">
                     <span class="input-group-text"><i class="fa-solid fa-envelope-circle-check"></i></span>
                 </div>
             </div>
@@ -129,26 +121,23 @@
             <div class="mt-3 form-group">
                 <label for="address" class="h6">Address:</label>
                 <div class="input-group">
-                    <input type="text" id="address" class="form-control" placeholder="Input Address" name="customerAddress"
-                           required >
+                    <input type="text" id="address" class="form-control" placeholder="Input Address" name="address"
+                            title="Vui lòng không để trống địa chỉ.">
                     <span class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></span>
                 </div>
             </div>
 
             <div class="mt-3 form-group">
-                <div class="mt-3 form-group">
-                    <label class="h6" for="customerType">Customer Type:</label>
-                    <div class="input-group">
-                        <%--                    <select id="customerType" class="form-control" name="customerType">--%>
-                        <%--                        <c:forEach var="customerType" items="${customerTypeList}">--%>
-                        <%--                            <option value="${customerType.customerTypeId}">${customerType.customerTypeName}</option>--%>
-                        <%--                        </c:forEach>--%>
-                        <%--                    </select>--%>
-
-                        <input type="text" id="customerType" class="form-control" placeholder="Input customer Type" name="customerTypeID">
-                        <span class="input-group-text"><i class="fa-solid fa-ranking-star"></i></span>
-                    </div>
+                <label class="h6" for="customerType">Customer Type:</label>
+                <div class="input-group">
+                    <select id="customerType" class="form-control" name="customerType">
+                        <c:forEach var="customerType" items="${customerTypeList}">
+                            <option value="${customerType.customerTypeId}">${customerType.customerTypeName}</option>
+                        </c:forEach>
+                    </select>
+                    <span class="input-group-text"><i class="fa-solid fa-ranking-star"></i></span>
                 </div>
+            </div>
 
             <div class="mt-3 text-center">
                 <button class="btn btn-info btn-outline-success btn-sm border border-2 border-success text-dark">

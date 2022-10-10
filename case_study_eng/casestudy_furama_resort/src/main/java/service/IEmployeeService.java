@@ -9,7 +9,11 @@ public interface IEmployeeService {
 
     boolean create(Employee employee);
 
+    Employee findById(int idFind);
+
     boolean edit(Employee employee);
 
     boolean delete(int idDelete);
+
+    List<Employee> search(String nameSearch, String addressSearch, String phoneSearch);
 }

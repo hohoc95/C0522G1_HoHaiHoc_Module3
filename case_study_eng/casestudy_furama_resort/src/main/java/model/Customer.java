@@ -2,41 +2,41 @@ package model;
 
 public class Customer {
     private int customerId;
-    private int customerTypeId;
     private String customerName;
-    private String customerDateOfBirth;
+    private String customerBirthday;
     private int customerGender;
     private String customerIdCard;
-    private String customerPhoneNumber;
+    private String customerPhone;
     private String customerEmail;
     private String customerAddress;
+    private int customerTypeId;
 
     public Customer() {
     }
 
-    public Customer(int customerTypeId, String customerName, String customerDateOfBirth, int customerGender, String customerIdCard, String customerPhoneNumber, String customerEmail, String customerAddress) {
-        this.customerTypeId = customerTypeId;
+    public Customer(String customerName, String customerBirthday, int customerGender, String customerIdCard,
+                    String customerPhone, String customerMail, String customerAddress, int customerTypeId) {
         this.customerName = customerName;
-        this.customerDateOfBirth = customerDateOfBirth;
+        this.customerBirthday = customerBirthday;
         this.customerGender = customerGender;
         this.customerIdCard = customerIdCard;
-        this.customerPhoneNumber = customerPhoneNumber;
-        this.customerEmail = customerEmail;
+        this.customerPhone = customerPhone;
+        this.customerEmail = customerMail;
         this.customerAddress = customerAddress;
+        this.customerTypeId = customerTypeId;
     }
 
-    public Customer(int customerId, int customerTypeId, String customerName,
-                    String customerDateOfBirth, int customerGender, String customerIdCard,
-                    String customerPhoneNumber, String customerEmail, String customerAddress) {
+    public Customer(int customerId, String customerName, String customerBirthday, int customerGender,
+                    String customerIdCard, String customerPhone, String customerMail, String customerAddress, int customerTypeId) {
         this.customerId = customerId;
-        this.customerTypeId = customerTypeId;
         this.customerName = customerName;
-        this.customerDateOfBirth = customerDateOfBirth;
+        this.customerBirthday = customerBirthday;
         this.customerGender = customerGender;
         this.customerIdCard = customerIdCard;
-        this.customerPhoneNumber = customerPhoneNumber;
-        this.customerEmail = customerEmail;
+        this.customerPhone = customerPhone;
+        this.customerEmail = customerMail;
         this.customerAddress = customerAddress;
+        this.customerTypeId = customerTypeId;
     }
 
     public int getCustomerId() {
@@ -47,14 +47,6 @@ public class Customer {
         this.customerId = customerId;
     }
 
-    public int getCustomerTypeId() {
-        return customerTypeId;
-    }
-
-    public void setCustomerTypeId(int customerTypeId) {
-        this.customerTypeId = customerTypeId;
-    }
-
     public String getCustomerName() {
         return customerName;
     }
@@ -63,12 +55,12 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public String getCustomerDateOfBirth() {
-        return customerDateOfBirth;
+    public String getCustomerBirthday() {
+        return customerBirthday;
     }
 
-    public void setCustomerDateOfBirth(String customerDateOfBirth) {
-        this.customerDateOfBirth = customerDateOfBirth;
+    public void setCustomerBirthday(String customerBirthday) {
+        this.customerBirthday = customerBirthday;
     }
 
     public int getCustomerGender() {
@@ -87,12 +79,12 @@ public class Customer {
         this.customerIdCard = customerIdCard;
     }
 
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
+    public String getCustomerPhone() {
+        return customerPhone;
     }
 
-    public void setCustomerPhoneNumber(String customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
     }
 
     public String getCustomerEmail() {
@@ -109,5 +101,13 @@ public class Customer {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
+    }
+
+    public int getCustomerTypeId() {
+        return customerTypeId;
+    }
+
+    public void setCustomerTypeId(int customerTypeId) {
+        this.customerTypeId = customerTypeId;
     }
 }

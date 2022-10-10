@@ -1,14 +1,13 @@
 package service.impl;
 
 import model.Customer;
-import repository.ICustomerRepository;
 import repository.impl.CustomerRepository;
+import repository.ICustomerRepository;
 import service.ICustomerService;
 
 import java.util.List;
 
-public class CustomerService  implements ICustomerService {
-
+public class CustomerService implements ICustomerService {
     private ICustomerRepository iCustomerRepository = new CustomerRepository();
 
     @Override
@@ -21,6 +20,10 @@ public class CustomerService  implements ICustomerService {
         return iCustomerRepository.create(customer);
     }
 
+    @Override
+    public Customer findById(int customerId) {
+        return iCustomerRepository.findById(customerId);
+    }
 
     @Override
     public boolean edit(Customer customer) {
@@ -33,7 +36,7 @@ public class CustomerService  implements ICustomerService {
     }
 
     @Override
-    public Customer findById(int id) {
-        return null;
+    public List<Customer> search(String nameSearch, String addressSearch, String phoneSearch) {
+        return iCustomerRepository.search(nameSearch, addressSearch, phoneSearch);
     }
 }

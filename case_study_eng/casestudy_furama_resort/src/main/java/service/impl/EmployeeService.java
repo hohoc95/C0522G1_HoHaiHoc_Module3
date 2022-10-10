@@ -21,6 +21,11 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
+    public Employee findById(int idFind) {
+        return iEmployeeRepository.findById(idFind);
+    }
+
+    @Override
     public boolean edit(Employee employee) {
         return iEmployeeRepository.edit(employee);
     }
@@ -28,5 +33,10 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public boolean delete(int idDelete) {
         return iEmployeeRepository.delete(idDelete);
+    }
+
+    @Override
+    public List<Employee> search(String nameSearch, String addressSearch, String phoneSearch) {
+        return iEmployeeRepository.search(nameSearch, addressSearch, phoneSearch);
     }
 }
